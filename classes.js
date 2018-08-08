@@ -29,7 +29,17 @@
   Call your class Employee and receive all the data in the constructor in the order listed above.
 */
 
-//Code Here
+class Employee {
+  constructor(first_name, last_name, email, age){
+this.first_name = first_name;
+this.last_name = last_name;
+this.email = email;
+this.age = age;
+  }
+  makeWidget(){
+    return this.first_name +' '+ this.last_name + ' Widget'
+  }
+}
 
 
 
@@ -49,7 +59,24 @@
   Call your new class Manager
 */
 
-//Code Here
+class Manager{
+  constructor(first_name, last_name, email, age,reports){
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports =[];
+  }
+  makeWidget(){
+    return this.first_name +' '+ this.last_name + ' Widget'
+  }
+  hire(employee){
+  this.reports.push(employee)
+  }
+  fire(index){
+    this.reports.splice(index,1)
+  }
+}
 
 
 
@@ -75,7 +102,30 @@
   Call your new class ProgressiveManager
 */
 
-//Code Here
+class ProgressiveManager{
+  constructor(first_name, last_name, email, age, reports, title, bonus){
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports =[];
+    this.title = 'Not a manager';
+    this.bonus = 0
+  }
+  hire(employee){
+  this.reports.push(employee)
+  if(this.reports.length===0){return this.title='Not a manager'}
+  else if(this.reports.length>=1 && this.reports.length <=3){return this.title='Barely Manager'}
+  else if(this.reports.length>=4 && this.reports.length <=10){return this.title='Mostly Manager'}
+  else if(this.reports.length>=11 && this.reports.length <=50){return this.title='Manager'}
+  else if(this.reports.length>=51 && this.reports.length <=100){return this.title='Manager Plus'}
+  else if(this.reports.length>=101){return this.title='Bestest Manager'}
+  }
+  fire(index){
+    this.reports.splice(index,1)
+    this.bonus += 100
+}
+}
 
 
 
